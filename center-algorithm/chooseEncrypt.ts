@@ -1,44 +1,53 @@
-const n : number = 2
-switch(n){
-    case 1:
+
+export default class ChooseEncrypt {
     
-        break;
 
-    case 2:
+    static between9options(data:string|number ,n:number){
+            switch(n){
+                case 1:
+                    return "a"
+                    break;
 
-        break;
+                case 2:
+                    return "b"
+                    break;
 
-    case 3:
+                case 3:
+                    return "c"
+                    break;
+
+                case 4:
+                    return "d"
+                    break;
+            
+                case 5: 
+                    return "e"
+                    break;
+
+                case 6:
+                    return "f"
+                    break;
+
+                case 7:
+                    return "g"
+                    break;
+
+                case 8:
+                    return "h"
+                    break;
+
+                case 9:
+                    return "l"
+                    break;
+
+                default:
+                    return "erro"
+                    break;
+            }
+
+
         
-        break;
+    }
 
-    case 4:
 
-        break;
-   
-    case 5:
-        
-        break;
-
-    case 6:
-
-        break;
-
-    case 7:
-
-        
-        break;
-
-    case 8:
-
-        
-        break;
-
-    case 9:
-
-        
-        break;
-
-    default:
-        break;
 }

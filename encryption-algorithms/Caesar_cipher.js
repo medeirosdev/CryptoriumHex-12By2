@@ -22,15 +22,14 @@ class CaesarCipher {
             return t.codePointAt(0);
         });
         const textRotation = textoAscii.map((n) => {
-            return (n + 65 - keyCaesar) % 26 + 65;
+            return (n - 65 - keyCaesar) % 26 + 65;
         });
         const textCifrado = textRotation.map((n) => {
             return String.fromCharCode(n);
         });
         return textCifrado.join("");
-        console.log(textCifrado.join(""));
     }
 }
 exports.default = CaesarCipher;
-console.log(CaesarCipher.CriptCipher("MAORNKXSK", 5));
-console.log(CaesarCipher.DecriptCipher("RFTWSPCXP", 5));
+console.log(CaesarCipher.CriptCipher("HELLO", 5));
+console.log(CaesarCipher.DecriptCipher(CaesarCipher.CriptCipher("HELLO", 5), 5));
