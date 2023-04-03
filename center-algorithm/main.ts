@@ -33,12 +33,14 @@ export default class CryptoriumHex {
 
         const n9 : number = (Utility.giveRandomNumber(10)) + 1;
         const data9 = ChooseEncrypt.between9options( data8  ,n9)
-        code.push(n1 , n2, n3 , n4 , n5 , n6 , n7 , n8 , n9)
-        return (data9 + "xxxxxxxxxx" + code)
+        code.push(n1 , n2 , n3 , n4 , n5 , n6 , n7 , n8 , n9)
+        return (data9 + code)
+        console.log(data9 + "==" + code)
+        console.log(code)
         
     }
 
 
 }
 
-console.log(CryptoriumHex.Start("data"))
+console.log(CryptoriumHex.Start("a"))

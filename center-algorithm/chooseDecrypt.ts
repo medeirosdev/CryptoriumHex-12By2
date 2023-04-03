@@ -77,40 +77,40 @@ export default class Descrypt9codes {
 
     static this_data(data:string){
 
-        const lastNine = data.substring(data.length - 18);
-        console.log(data)
+        const strData = data.slice(0, data.indexOf("="));
+
+        const lastNine = data.substring(data.length - 17);
+        console.log(strData)
         const nineCode = lastNine.split(',').map(Number);
 
         console.log(nineCode)
-        console.log(nineCode[8])
-
-        const d1 = Descrypt9codes.select_decrypt(nineCode[8] , data)
-        console.log(d1)
-
-        const d2 = Descrypt9codes.select_decrypt(nineCode[7] , d1)
-        console.log(d2)
-
-        const d3 = Descrypt9codes.select_decrypt(nineCode[6] , d2)
-        console.log(d3)
-
-        const d4 = Descrypt9codes.select_decrypt(nineCode[5] , d3)
-        console.log(d4)
-
-        const d5 = Descrypt9codes.select_decrypt(nineCode[4] , d4)
-        console.log(d5)
-
-        const d6 = Descrypt9codes.select_decrypt(nineCode[3] , d5)
-        console.log(d6)
-
-        const d7 = Descrypt9codes.select_decrypt(nineCode[2] , d6)
-        console.log(d7)
-
-        const d8 = Descrypt9codes.select_decrypt(nineCode[1] , d7)
-        console.log(d8)
-
-        const d9 = Descrypt9codes.select_decrypt(nineCode[0] , d8)
-        console.log(d9)
         
+        const d1 = Descrypt9codes.select_decrypt(nineCode[8] ,strData)
+        
+        console.log("esse é o texto 1  : " + d1)
+        const d2 = Descrypt9codes.select_decrypt(nineCode[7] , d1)
+       
+        console.log("esse é o texto 2  : " + d2)
+        const d3 = Descrypt9codes.select_decrypt(nineCode[6] , d2)
+        
+        console.log("esse é o texto 3  : " + d3)
+        const d4 = Descrypt9codes.select_decrypt(nineCode[5] , d3)
+        
+        console.log("esse é o texto 4  : " + d4)
+        const d5 = Descrypt9codes.select_decrypt(nineCode[4] , d4)
+        
+        console.log("esse é o texto 5  : " + d5)
+        const d6 = Descrypt9codes.select_decrypt(nineCode[3] , d5)
+        
+        console.log("esse é o texto 6  : " + d6)
+        const d7 = Descrypt9codes.select_decrypt(nineCode[2] , d6)
+        
+        console.log("esse é o texto 7  : " + d7)
+        const d8 = Descrypt9codes.select_decrypt(nineCode[1] , d7)
+        
+        console.log("esse é o texto 8  : " + d8)
+        const d9 = Descrypt9codes.select_decrypt(nineCode[0] , d8)
+        console.log("esse é o texto 9  : " + d9)
         return d9
     }
 
@@ -119,5 +119,5 @@ export default class Descrypt9codes {
 
 
 
-const data = "U2FsdGVkX1/FRPoE0zxo0mLBXeTlxMO0OTA/usV/GYhGzLqi1wgdJt7Bxm7barZILzYY9tOjjUV2cb4Q76jnJQ==xxxxxxxxxx8,10,2,2,7,4,8,7,4"
-Descrypt9codes.this_data(data)
+const data = "U2FsdGVkX188K3oVM82kmU/OLRBJ00h/dS2ZgeIK5TNLpniP/3VkpYSUrYv1Ms0Fql3S2gh+fx7qAjeC9blXLNB5KuSoBmxuY0au7DoGoLubaMp/gg6/o+z7yqwnQOu4e7kg6c7As8PcHg/AnJy1ni/5+vSUkFxUgk0B43efGFZE7rLhGhC/3JRDxJqOkVBlXU+tZZGki0IdhMsTVDuPvNLUf2rIr7LnyLRwE8r9EJQ=5,9,4,10,4,7,7,7,1"
+console.log(Descrypt9codes.this_data(data))

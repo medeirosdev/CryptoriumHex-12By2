@@ -51,7 +51,10 @@ export default class cryptTransposition{
             const column = key.indexOf(i.toString());
             for (let j = 0; j < Math.ceil(messageLength / keyLength); j++) {
                 if (index < messageLength) {
-                    messageMatrix[column][j] = data.charAt(index);
+                    if (!messageMatrix[column]) {
+                        messageMatrix[column] = [];
+                      }
+                      messageMatrix[column][j] = data.charAt(index);
                     index++;
                 }
             }

@@ -27,8 +27,10 @@ class CryptoriumHex {
         const n9 = (util_Functions_1.default.giveRandomNumber(10)) + 1;
         const data9 = chooseEncrypt_1.default.between9options(data8, n9);
         code.push(n1, n2, n3, n4, n5, n6, n7, n8, n9);
-        return (data9 + "xxxxxxxxxx" + code);
+        return (data9 + code);
+        console.log(data9 + "==" + code);
+        console.log(code);
     }
 }
 exports.default = CryptoriumHex;
-console.log(CryptoriumHex.Start("data"));
+console.log(CryptoriumHex.Start("a"));

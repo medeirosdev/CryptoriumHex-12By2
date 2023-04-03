@@ -1,25 +1,22 @@
-import { Sequelize } from 'sequelize-typescript';
+import { Sequelize, Model, DataTypes } from 'sequelize';
 
 
-const connMySQL = new Sequelize({
+const sequelize = new Sequelize({
     database: 'cryptorium',
-    dialect: 'mysql',
     username: 'gui',
     password: 'guigui167',
-    models: [__dirname + '/models'] // caminho para os modelos
+    host: 'localhost',
+    port: 3306,
+    dialect: 'mysql',
   });
 
-try {
-    //sequelize.authenticate()
-    console.log("Conectamos com sucesso")
-} catch(err){
-    console.log("Não foi possível" + err)
-}
+sequelize.sync()
+  .then(() => console.log('Models synchronized with MySQL database'))
+  .catch((error : any)=> console.error('Error synchronizing models with MySQL database', error));
 
 
 
-
-export default connMySQL;
+export default sequelize;
 
 
 //db.sequelize = sequelize;

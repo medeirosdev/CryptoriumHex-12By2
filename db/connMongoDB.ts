@@ -1,10 +1,23 @@
 const mongoose = require('mongoose')
 
-async function main() {
-  await mongoose.connect('mongodb://localhost:27017/cryptorium')
-  console.log('Conectou com Mongoose!')
-}
+const mongoConfig = {
+  url: 'mongodb://localhost:27017/cryptorium',
+  options: {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  },
+};
 
-main().catch((err) => console.log(err))
+export const connectToMongo = async () => {
+  try {
+    await mongoose.connect(mongoConfig.url, mongoConfig.options);
+    console.log('Connected to MongoDB');
+  } catch (error :any) {
+    console.error('Error connecting to MongoDB:', error.message);
+    process.exit(1);
+  }
+};
 
-module.exports = mongoose
+export default mongoConfig;

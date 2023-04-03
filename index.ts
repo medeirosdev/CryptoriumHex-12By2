@@ -15,15 +15,15 @@ app.use(express.json())                                             //          
 
 //
 //============================ Models ==============================//
-
-
+const DataModel = require('./models/dataModel')
+const codeModel = require('./models/codeMode')
 //==================== DB & Routes Start Script=====================//
-const connMySQL = require('./db/connMySQL');
-const mongoose = require('./db/connMongoDB')
+import sequelize from './db/connMySQL';
+import { connectToMongo } from './db/connMongoDB';
 //==================================================================//
 try{
-    connMySQL.sync()
-    mongoose.sync()
+    sequelize.sync({force: true})
+    connectToMongo()
     // colocar {force: true} ao alterar dados no BD
 .then( ()=> {
     console.log('server rodando na porta: ', port)
