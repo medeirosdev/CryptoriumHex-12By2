@@ -46,6 +46,3 @@ export default class CaesarCipher {
 
 
 
-console.log(CaesarCipher.CriptCipher("HELLO" , 5 ))
-
-console.log(CaesarCipher.DecriptCipher(CaesarCipher.CriptCipher("HELLO" , 5 ) , 5 ))

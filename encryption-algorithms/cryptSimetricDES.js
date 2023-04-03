@@ -25,12 +25,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const CryptoJS = __importStar(require("crypto-js"));
 class cryptSimetricDES {
-    encryptDES(data, key) {
-        const cryptText = CryptoJS.DES.encrypt(data, key).toString();
+    static encryptDES(data) {
+        const cryptText = CryptoJS.DES.encrypt(data, "Secret Passphrase").toString();
         return cryptText;
     }
-    decryptDES(data, key) {
-        const descryptText = CryptoJS.DES.decrypt(data, key).toString();
+    static decryptDES(data) {
+        const descryptText = CryptoJS.DES.decrypt(data, "Secret Passphrase").toString();
         return descryptText;
     }
 }

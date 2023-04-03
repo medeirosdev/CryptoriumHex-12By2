@@ -31,5 +31,3 @@ class CaesarCipher {
     }
 }
 exports.default = CaesarCipher;
-console.log(CaesarCipher.CriptCipher("HELLO", 5));
-console.log(CaesarCipher.DecriptCipher(CaesarCipher.CriptCipher("HELLO", 5), 5));

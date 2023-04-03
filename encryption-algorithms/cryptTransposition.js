@@ -25,32 +25,32 @@ class cryptTransposition {
         return encryptedMessage;
     }
     static descryptTransposition(data, key) {
-        const numColumns = key.length;
-        const numRows = Math.ceil(data.length / numColumns);
-        const numEmptyCells = (numRows * numColumns) - data.length;
-        let plainText = "";
-        let columnIndex = 0;
-        let rowIndex = 0;
-        const matrix = new Array(numRows).fill(null).map(() => new Array(numColumns));
-        // Preencher matriz com cifra de transposição
-        for (let i = 0; i < data.length; i++) {
-            if (columnIndex === numColumns) {
-                columnIndex = 0;
-                rowIndex++;
-            }
-            if (rowIndex === numRows - 1 && columnIndex >= numColumns - numEmptyCells) {
-                columnIndex++;
-                continue;
-            }
-            matrix[rowIndex][columnIndex] = data[i];
-            columnIndex++;
+        const keyLength = key.length;
+        const messageLength = data.length;
+        // Criando uma matriz para armazenar a mensagem em colunas
+        const messageMatrix = [];
+        for (let i = 0; i < keyLength; i++) {
+            messageMatrix.push([]);
         }
-        // Desembaralhar colunas na ordem original
-        const keyIndexes = key.split("").map((char) => matrix[0].indexOf(char));
-        for (let i = 0; i < numColumns; i++) {
-            const column = keyIndexes.indexOf(i);
-            for (let j = 1; j < numRows; j++) {
-                plainText += matrix[j][column] || "";
+        // Preenchendo a matriz com a mensagem criptografada
+        let index = 0;
+        for (let i = 0; i < keyLength; i++) {
+            const column = key.indexOf(i.toString());
+            for (let j = 0; j < Math.ceil(messageLength / keyLength); j++) {
+                if (index < messageLength) {
+                    messageMatrix[column][j] = data.charAt(index);
+                    index++;
+                }
+            }
+        }
+        // Recuperando a mensagem original
+        let plainText = '';
+        for (let i = 0; i < Math.ceil(messageLength / keyLength); i++) {
+            for (let j = 0; j < keyLength; j++) {
+                const character = messageMatrix[j][i];
+                if (character !== undefined) {
+                    plainText += character;
+                }
             }
         }
         return plainText;

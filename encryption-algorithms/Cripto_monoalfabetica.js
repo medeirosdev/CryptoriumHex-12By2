@@ -6,14 +6,14 @@ class Cripto_Monoalfa {
         const alphabet = "abcdefghijklmnopqrstuvwxyz";
         let ciphertext = "";
         for (let i = 0; i < data.length; i++) {
-            const char = data[i].toLowerCase();
+            const char = data[i] ? data[i].toLowerCase() : ""; // Check if data[i] exists and convert to lowercase
             const charIndex = alphabet.indexOf(char);
             if (charIndex === -1) {
                 ciphertext += char;
             }
             else {
                 const cipherChar = key[charIndex];
-                ciphertext += data[i] === data[i].toUpperCase() ? cipherChar.toUpperCase() : cipherChar;
+                ciphertext += data[i] && data[i] === data[i].toUpperCase() ? cipherChar.toUpperCase() : cipherChar; // Check if data[i] exists and preserve original case
             }
         }
         return ciphertext;
@@ -35,7 +35,3 @@ class Cripto_Monoalfa {
     }
 }
 exports.default = Cripto_Monoalfa;
-const a = Cripto_Monoalfa.mono_cript("aasdasdasd", Key);
-console.log(a);
-const b = Cripto_Monoalfa.mono_descript(a, Key);
-console.log(b);

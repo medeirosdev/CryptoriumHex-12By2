@@ -2,13 +2,13 @@ import * as CryptoJS from 'crypto-js';
 
 export default class cryptSimetricAES {
 
-    encryptAES(data:string, key:string){
+    static encryptAES(data:string, key:string){
         const cryptText = CryptoJS.AES.encrypt(data, key).toString();
         return cryptText
     }
 
-    decryptAES(data:string, key:string){
-        const descryptText = CryptoJS.AES.decrypt(data , key).toString();
+    static decryptAES(data:string){
+        const descryptText = CryptoJS.AES.decrypt(data , "Secret Passphrase").toString();
         return descryptText
     }
 

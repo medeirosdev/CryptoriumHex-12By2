@@ -1,53 +1,77 @@
+import CaesarCipher from "../encryption-algorithms/Caesar_cipher"
+import Cripto_Monoalfa from "../encryption-algorithms/Cripto_monoalfabetica"
+import cryptSimetricDESAES from "../encryption-algorithms/cryptDESAES"
+import cryptRSA from "../encryption-algorithms/cryptRSA"
+import cryptSimetricAES from "../encryption-algorithms/cryptSimetricAES"
+import cryptSimetricDES from "../encryption-algorithms/cryptSimetricDES"
+import cryptTransposition from "../encryption-algorithms/cryptTransposition"
+import cryptVigenere from "../encryption-algorithms/cryptVigenere"
+
+
+
+
 
 export default class ChooseEncrypt {
-    
 
-    static between9options(data:string|number ,n:number){
+    static between9options(data:string ,n:number){
+
             switch(n){
                 case 1:
-                    return "a"
-                    break;
+                    const key1 = "ADBWEWASD"
+                    const result1 = cryptSimetricAES.encryptAES(data, key1)
+                    return result1;
+                   
 
                 case 2:
-                    return "b"
-                    break;
+                    const key2 = "ADBWEWASD"
+                    const result2 = CaesarCipher.CriptCipher(data , 5)
+                    return result2;
+                   
 
                 case 3:
-                    return "c"
-                    break;
+                    const key3 = "ADBWEWASD"
+                    const result3 = cryptSimetricDESAES.encryptDESAES(data )
+                    return result3;
+                   
 
                 case 4:
-                    return "d"
-                    break;
+                    const key4 = "ADBWEWASD22"
+                    const result4 = cryptSimetricAES.encryptAES(data, key4)
+                    return result4;
+                
             
                 case 5: 
-                    return "e"
-                    break;
+                    const key5 = "ADBWEWASD"
+                    const result5 = cryptSimetricAES.encryptAES(data, key5)
+                    return result5;
+              
 
                 case 6:
-                    return "f"
-                    break;
+                    const key6 : string = "ADBWEWASD"
+                    const result6 = cryptSimetricDES.encryptDES(data)
+                    return result6;
+                 
 
                 case 7:
-                    return "g"
-                    break;
+                    const result7 = cryptTransposition.encryptTransposition(data , "BANANA" )
+                    return result7;
+                
 
                 case 8:
-                    return "h"
-                    break;
+                    const key8 = "ADBWEWASD"
+                    const result8 = cryptVigenere.encryptVigenere(data , key8 )
+                    return result8;
+                   
 
                 case 9:
-                    return "l"
-                    break;
+                    const key9 = "ADBWEWASD"
+                    const result9 = cryptVigenere.encryptVigenere(data , key9 )
+                    return result9;
+                  
 
                 default:
-                    return "erro"
-                    break;
-            }
-
-
-        
+                    const result10 = cryptTransposition.encryptTransposition(data , "BANANA" )
+                    return result10;
+        }
     }
-
-
 }
